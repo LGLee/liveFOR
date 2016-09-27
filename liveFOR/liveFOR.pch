@@ -1,0 +1,63 @@
+//
+//  liveFOR.pch
+//  liveFOR
+//
+//  Created by lingo on 16/5/21.
+//  Copyright © 2016年 lingo. All rights reserved.
+//
+
+#ifndef liveFOR_pch
+#define liveFOR_pch
+/* * * * * * * * * * * LGLog（控制输出） * * * * * * * * * * * */
+#ifdef DEBUG
+#define LGLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__);
+#else
+#define LGLog(...)
+#endif
+/** weakSelf */
+#define weakSelf __weak __typeof(self)weakSelf =self
+/** 网络请求单例 */
+#define LGHttpTool [LGNetwork shareLGNetwork]
+/** 偏好设置 */
+#define LGUserDefaults [NSUserDefaults standardUserDefaults]
+/** 通知中心 */
+#define LGNotiCenter [NSNotificationCenter defaultCenter]
+/** keyWindow */
+#define LGKeyWindow [UIApplication sharedApplication].keyWindow
+/* * * * * * * * * * * category(分类) * * * * * * * * * * * */
+
+
+
+
+/* * * * * * * * * * * tool(工具)* * * * * * * * * * * */
+#import "LGConst.h"
+#import "LGApi.h"
+#import "LGNetwork.h"
+
+/* * * * * * * * * * * 通常类 * * * * * * * * * * * */
+#import "LGUserInfo.h"
+
+
+/* * * * * * * * * * * 屏幕适配相关* * * * * * * * * * * */
+// UIDevice
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+#define LGScreenW ([UIScreen mainScreen].bounds.size.width)
+#define LGScreenH ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+/* * * * * * * * * * * color(颜色相关) * * * * * * * * * * * */
+#define LGRandomColor [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0]
+
+
+/* * * * * * * * * * * <#注释类别#> * * * * * * * * * * * */
+/* * * * * * * * * * * <#注释类别#> * * * * * * * * * * * */
+/* * * * * * * * * * * <#注释类别#> * * * * * * * * * * * */
+
+#endif /* liveFOR_pch */
